@@ -98,3 +98,7 @@ console.log(player);
 
 // other case
 player.lastName = "Kim";
+
+console.log(player.points);
+player.points = player.points + 15;
+console.log(player.points);
