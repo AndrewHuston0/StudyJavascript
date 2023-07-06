@@ -102,3 +102,26 @@ player.lastName = "Kim";
 console.log(player.points);
 player.points = player.points + 15;
 console.log(player.points);
+
+// If function is not exist.
+console.log("Hello my name is Hojun");
+console.log("Hello my name is EK");
+console.log("Hello my name is King");
+console.log("Hello my name is Jonhson");
+console.log("Hello my name is Fynn");
+
+// function
+function sayHello() {
+  console.log("Hello my name is C");
+};
+
+sayHello();
+sayHello();
+sayHello();
+sayHello();
+
+// empty arguments
+// alert();
+// console.log();
+
+
