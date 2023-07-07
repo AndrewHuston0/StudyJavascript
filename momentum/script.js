@@ -111,13 +111,13 @@ console.log("Hello my name is Jonhson");
 console.log("Hello my name is Fynn");
 
 // function
-function sayHello() {
-  console.log("Hello my name is C");
+function sayHello(nameOfPerson, age) {
+  console.log("Hello my name is " + nameOfPerson + " and I'm " + age);
 };
 
-sayHello();
-sayHello();
-sayHello();
+sayHello("hojun", 10);
+sayHello("df", 50);
+sayHello("kim", 21);
 sayHello();
 
 // empty arguments
@@ -125,3 +125,17 @@ sayHello();
 // console.log();
 
 
+// receive data in function
+
+
+// object function활용
+
+const newplayer =  { 
+  name: "hojun",
+  sayHellow: function(otherPersonsName){
+    console.log("hellow " + otherPersonsName + "nice to meet you!");
+  }
+};
+
+console.log(newplayer.name);
+newplayer.sayHellow("hojun");
