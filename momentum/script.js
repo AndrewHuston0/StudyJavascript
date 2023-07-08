@@ -120,6 +120,11 @@ sayHello("df", 50);
 sayHello("kim", 21);
 sayHello();
 
+// be careful! 
+// sayHello; <- nothing happen => sayHello();
+// function의 argument가 한정적인 경우 많은 argumet를 보내도 앞에 순서로 자른다.(문제가 되지 않는다.)
+// function내의 argument는 함수 내에서만 작동하고 함수 밖에서는 동작하지 않는다.
+
 // empty arguments
 // alert();
 // console.log();
@@ -139,3 +144,29 @@ const newplayer =  {
 
 console.log(newplayer.name);
 newplayer.sayHellow("hojun");
+
+// console is object
+
+console.log(console)
+
+// calculater
+
+const calculater = {
+  add: function(a, b){
+    console.log(a + b);
+  },
+  minus: function(a, b){
+    console.log(a - b);
+  },
+  divide: function(a, b){
+    console.log(a / b);
+  },
+  powerof: function(a, b){
+    console.log(a**b);
+  }
+};
+
+calculater.add(1,1);
+calculater.divide(1,1);
+calculater.minus(1,1);
+calculater.powerof(1,1);
