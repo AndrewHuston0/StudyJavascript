@@ -150,19 +150,21 @@ newplayer.sayHellow("hojun");
 console.log(console)
 
 // calculater
+// console.log, alert, return
 
 const calculater = {
   add: function(a, b){
-    console.log(a + b);
+   return a + b;
+   console.log("hello")
   },
   minus: function(a, b){
-    console.log(a - b);
+   return a - b;
   },
   divide: function(a, b){
-    console.log(a / b);
+   return a / b;
   },
   powerof: function(a, b){
-    console.log(a**b);
+   return a ** b;
   }
 };
 
@@ -170,3 +172,40 @@ calculater.add(1,1);
 calculater.divide(1,1);
 calculater.minus(1,1);
 calculater.powerof(1,1);
+
+console.log(calculater.add(1, 1));
+// alert 시 result is undefined, 보다시피 결과값이 저장되지 않음
+
+const age = 96;
+function calculateKrAge(ageOfForeigner){
+  return ageOfForeigner + 2;
+}
+
+const krAge = calculateKrAge(age);
+
+console.log(krAge);
+
+// return을 제거하면 undefined임
+
+const bigyo = 96;
+function calculatebigyo(ageOfForeigner){
+  ageOfForeigner + 2;
+  return "hello"
+}
+
+const krbigyo = calculatebigyo(bigyo);
+
+console.log(krbigyo);
+
+// retuen 된 값만 반환됨
+
+const addResult = calculater.add(1, 1);
+const minusResult = calculater.minus(addResult, 10);
+const divideResult = calculater.divide(10, minusResult);
+const powerofResut = calculater.powerof(divideResult, minusResult);
+
+
+console.log(addResult);
+
+// ps. 아주 중요한 개념 : function에서 return을 하면 function은 작동을 끝내고 그 값을 return해버림 (console.log"hello" 참조)
+
