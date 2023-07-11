@@ -209,3 +209,61 @@ console.log(addResult);
 
 // ps. 아주 중요한 개념 : function에서 return을 하면 function은 작동을 끝내고 그 값을 return해버림 (console.log"hello" 참조)
 
+
+// const yourage = prompt("How old are you?");
+// console.log(typeof yourage, typeof parseInt(yourage));
+// prompt는 사용자에게  창을 띄울 수 있게 해줌, prompt는 2개의 arguments를 받는데, 하나는 message, 다른 하나는 default/ message는 string(마우스를 갖다 대 보면 나옴)
+// prompt라인에서 뭔가를 입력하지 않으면 다음 코드는 실행되지 않고 prompt에서 멈춰있는다. 이것이 더 이상 prompt function을 사용하지 않는 이유, 또 메세지가 안이쁘고 어떤 종류의 css도 적용시킬 수 없음
+// 어떤 브라우저는 팝업을 제한하기도 함. 매우매우 오래된 방법
+// variable의 type을 보는 방법 : typeof
+// parseInt()는 string을 number로 바꿔주는데 이것이 유용한 점은 수의 크기를 비교할 수 있음
+
+//응용
+
+const checkAge = parseInt(prompt("How old are you?"));
+
+// console.log(checkAge); NaN이 나오나 number이 나오나 체크
+
+// console.log(isNaN(checkAge));
+
+// isNaN NaN인지 아닌지 boolean으로 알려줌
+// conditional(keyword is 'if')
+
+/* 
+if(condition){
+  /// condition === true
+} else {
+  /// condtion === false
+} 
+condition은 true거나 false거나 두 가지 뿐임(boolean)
+*/ 
+
+if(isNaN(checkAge) || checkAge < 0){
+  console.log("Please write a real positive number");
+} else if(checkAge < 18){
+  console.log("You are too young.");
+} else if(checkAge>=18 && checkAge <= 50){
+  console.log("You can drink");
+} else if(checkAge > 50 && checkAge <=80){
+  console.log("you should exercise");
+} else if(checkAge >80){
+  console.log("You can do anything you want.")
+}
+
+// else if else랑 비슷한데 if를 더한 개념
+
+
+// 두 가지 조건을 동시에 확인 and operator && 둘 모두 true여야 true, or operator || 하나만 true 여도 true
+
+/* 
+true || true === true
+true || false === true
+false || true === true
+false || false === fasle
+
+true && true === true
+true && false === false
+false && true === false
+false && false === false
+*/
+
