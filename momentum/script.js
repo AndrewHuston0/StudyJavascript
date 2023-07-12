@@ -246,12 +246,14 @@ if(isNaN(checkAge) || checkAge < 0){
   console.log("You can drink");
 } else if(checkAge > 50 && checkAge <=80){
   console.log("you should exercise");
+} else if(checkAge === 100){
+  console.log("wow you are wise");
 } else if(checkAge >80){
   console.log("You can do anything you want.")
 }
 
 // else if else랑 비슷한데 if를 더한 개념
-
+// = 한 개는 value를 할당하는 것 ===는 양쪽이 같은지 확인한는 것, !== 양쪽이 다른지 확인하는 것(아닌지)
 
 // 두 가지 조건을 동시에 확인 and operator && 둘 모두 true여야 true, or operator || 하나만 true 여도 true
 
