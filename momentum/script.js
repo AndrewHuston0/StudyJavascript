@@ -1,3 +1,4 @@
+/*
 // variable & type
 const a = 5;
 const b = 2;
@@ -237,6 +238,7 @@ if(condition){
 } 
 condition은 true거나 false거나 두 가지 뿐임(boolean)
 */ 
+/*
 
 if(isNaN(checkAge) || checkAge < 0){
   console.log("Please write a real positive number");
@@ -269,3 +271,25 @@ false && true === false
 false && false === false
 */
 
+// <h1>의 id를 가져오는 방법
+// document.getElementById("title"); //이 함수는 string을 받는 함수
+/* const tilte = document.getElementById("title"); //title이 null인데 null의 innerText를 변경하려고 했다는 말
+tilte.innerText = "Got you!"
+console.log(tilte.className);
+*/
+
+// hello class
+/* const hellos = document.getElementsByClassName("hello");
+console.log(hellos); //console에서 출력되는 걸 보다시피 array */
+
+// 여기서 HTML 수업의 효율성을 위해 위의 모든 것을 주석처리 하겠음
+// const title = document.getElementsByTagName("h1"); //노마드 코더 기준에서 element를 가져오는 가장 멋진 방법은 querySelector와 querySelectorAll 
+// querySelector는 element를 CSS방식으로 검색 할 수 있음
+
+
+// console.log(title); // title 자체는 object가 아니고 array이기 때문에 뭘 할 수 없음
+// 위 코드와 비교
+const tilte = document.querySelector(".hello h1"); // classname으로 get element할 때는 class name을 넘겨준다는 것을 JS가 알지만, querySelector에선 hello가 class name이라는 것과 그 안의
+// h1을 명시해줘야함.
+
+console.log(tilte);
