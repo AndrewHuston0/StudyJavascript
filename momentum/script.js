@@ -286,10 +286,91 @@ console.log(hellos); //console에서 출력되는 걸 보다시피 array */
 // const title = document.getElementsByTagName("h1"); //노마드 코더 기준에서 element를 가져오는 가장 멋진 방법은 querySelector와 querySelectorAll 
 // querySelector는 element를 CSS방식으로 검색 할 수 있음
 
-
+/*
 // console.log(title); // title 자체는 object가 아니고 array이기 때문에 뭘 할 수 없음
 // 위 코드와 비교
 const tilte = document.querySelector(".hello h1"); // classname으로 get element할 때는 class name을 넘겨준다는 것을 JS가 알지만, querySelector에선 hello가 class name이라는 것과 그 안의
 // h1을 명시해줘야함.
 
 console.log(tilte);
+
+// query selector를 쓸 때 여러가지 h1이 있더라도 첫 번째 것만 출력된다.
+// 3개 모두 가져오고 싶다면 querySeclectorAll 해주면됨
+const tilteAll = document.querySelectorAll(".hello h1");
+
+console.log(tilteAll);
+
+/*
+const title = document.querySecelector("#hello");
+const title = document.getElementById("hello");
+위 두개는 같은 의미로 ID를 찾을 수 있음, 다만 쿼리셀렉터의 좋은 점은 id하위의 form을 가져온다던지 ("#hello form") 할 수 있음
+*/
+/*
+tilte.innerText = "Hello"; // 이렇게 수정할 수 있는 이유는 HTML 파일 내에 script.js파일이 import되어 있기 때문에 가능
+// 내부를 보고 싶다면 console.log 대신 console.dir 를 사용할 것(object로 표현된 element를 보여줌)
+// 안에 있는 property들을 변경할 수도 있고, 변경하지 못할 수도 있는데 좋은 것은 style임
+// style또한 object이고 안에 여러가지 파일이 있는데 예를 들오 color를 바꿔보자
+
+tilte.style.color = "blue"; //여기서  HTML의 h1의 style을 JS를 사용해서 변경할 수 있다는 점이 매우 멋지다.
+// 따라서 JS가 browser에서 얼마나 강력한지 알아야 함. 하지만 대부분 작업할 일은,  event를 listen하는 것
+// event란 : 마우스가 해당 line위로 올라가거나, click을 한다거나, 입력을 끝낸다거나, 이름을 적거나, enter를 누르거나... 등등등
+*/
+const h1 = document.querySelector("div.hello:first-child h1");
+
+function handleTitleClick(){
+  h1.style.color = "blue";
+}
+
+// h1.addEventListener("click", handleTitleClick);// 어떤 event를 listen할 지 정해주는 것
+// 이 문장의 의미는 여기서 click 이벤트를 listen하고, click event가 발생하면, handleTitleClick일 동작함. 여기서 중요한 것은 fucntion에 괄호를 넣지 않아야 된다는 것 
+// 괄호를 넣어줄 경우 click에 관계없이 그냥 실행됨 _ 설명을 들어보면 JS에 function만 넘겨주고 JS가 실행시켜주는 것이라고 함
+// handleTitleClick() 그냥 이것만 써서 실행시킬 때와 차이
+
+// recap : event를 listen하기 위해서는(예를들면 click event) HTML element를 가져와서, addEventListener function을 실행시켜 주면 되는데, 어떤 event를 listen하고 싶은 지 명시해 줘야함.
+// 그리고 event를 했을 때 어떤 함수를 실행시킬지도 정해야 함.
+
+// 내가 listen하고 싶은 event를 찾는 가장 좋은 방법은 Mozilla Developer Network인 MDN에 검색을 해보는 것
+// web API가 포함된 파일이 좋은데 왜냐하면 이것이, JavaScript관점의 HTML heading Element란 의미이기 때문
+// 또는 console.dir로 찾을 수도 있고, on이 붙어있는 것이 사용할 수 있는 event(사용할 때는 on을 떼고 써야함)
+
+function handleMouseEnter(){
+  h1.innerText = "Mouse is here!";
+}
+
+function handleMouseLeave(){
+  h1.innerText = "Mouse is gone!";
+}
+
+h1.addEventListener("mouseenter", handleMouseEnter);
+h1.addEventListener("mouseleave", handleMouseLeave);
+
+// JS로도 style을 변경시킬 수 있지만, 대부분의 경우에 style은 css를 통해서 변경되어야 함.
+// addEventListener를 통해서 event를 할당할 수도 있고, oneventname property에 event listener를 할당함으로써 event를 listen할 수 있음
+// 예를 들어 위의 click event할당문장을
+h1.onclick = handleTitleClick; // 이렇게 바꿀 수도 있음.
+// 이중 노마드 코더가 addEventListener를 더 선호하는 이유는 나중에 .removeEventListener를 통해서 이벤트를 삭제할 수 있기 때문에
+
+// 이번엔 title말고 window에 대해 알아보자
+function handleWindowResize(){
+  document.body.style.backgroundColor = "tomato";
+}
+
+window.addEventListener("resize", handleWindowResize);
+
+// document.body / head / title같은 것은 중요하니까 존재하지만, 나머지는 querySecelector나 getElementById로 찾아와야 함
+
+function handleWindowCopy(){
+  alert("copier!");
+}
+window.addEventListener("copy", handleWindowCopy);
+
+// wifi의 연결여부
+function handleWindowOffline(){
+  alert("SOS no WIFI");
+}
+
+function handleWindowOnline(){
+  alert("ALL GOOD");
+}
+window.addEventListener("offline", handleWindowOffline);
+window.addEventListener("online", handleWindowOnline);
