@@ -315,6 +315,7 @@ tilte.style.color = "blue"; //여기서  HTML의 h1의 style을 JS를 사용해�
 // 따라서 JS가 browser에서 얼마나 강력한지 알아야 함. 하지만 대부분 작업할 일은,  event를 listen하는 것
 // event란 : 마우스가 해당 line위로 올라가거나, click을 한다거나, 입력을 끝낸다거나, 이름을 적거나, enter를 누르거나... 등등등
 */
+/*
 const h1 = document.querySelector("div.hello:first-child h1");
 
 function handleTitleClick(){
@@ -374,3 +375,37 @@ function handleWindowOnline(){
 }
 window.addEventListener("offline", handleWindowOffline);
 window.addEventListener("online", handleWindowOnline);
+*/
+
+const h1 = document.querySelector("div.hello:first-child h1");
+/*
+function handleTitleClick(){
+  if(h1.style.color === "blue"){
+    h1.style.color = "tomato";
+  } else { //필수적이진 않지만 사용해야 함.
+    h1.style.color = "blue";
+  }
+}
+*/
+
+// code를 더 간결하게 하는 법 : 현재의 color 상태를 저장함으로써
+function handleTitleClick(){
+  const currentColor = h1.style.color;
+  let newColor; // 새로 바뀌는 상태(변환할 수 있는 변수 설정)
+  if(currentColor === "blue"){
+    newColor = "tomato";
+  } else {
+    newColor = "blue";
+  }
+  h1.style.color = newColor; // 이 라인을 안 쓰면 아무것도 변경이 안됨
+}
+h1.addEventListener("click", handleTitleClick);
+
+// 다만 style 파일을 css에서 다루는 걸 더 선호함
+/*
+요약
+step 1. element를 찾아라
+step 2. event를 listen하라
+step 3. 그 event에 반응해라
+*/
+
