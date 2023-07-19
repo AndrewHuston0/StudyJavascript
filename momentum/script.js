@@ -376,7 +376,7 @@ function handleWindowOnline(){
 window.addEventListener("offline", handleWindowOffline);
 window.addEventListener("online", handleWindowOnline);
 */
-
+/*
 const h1 = document.querySelector("div.hello:first-child h1");
 /*
 function handleTitleClick(){
@@ -387,7 +387,7 @@ function handleTitleClick(){
   }
 }
 */
-
+/*
 // code를 더 간결하게 하는 법 : 현재의 color 상태를 저장함으로써
 function handleTitleClick(){
   const currentColor = h1.style.color;
@@ -409,3 +409,22 @@ step 2. event를 listen하라
 step 3. 그 event에 반응해라
 */
 
+// 노마드 코더는 일을 할 때 그 일에 적합한 도구를 사용하길 원하고, style을 작업할 때 적합한 도구는 css, 그리고 animation에 적합한 도구는 JavaScript 따라서 그는 JS안에서 CSS작업을 하는 것을 원치 않음
+
+const h1 = document.querySelector("div.hello:first-child h1");
+
+function handleTitleClick(){
+  const clickedClass = "active sexy-font" //이걸 방지하는 방법이 여기에 sexy-font를 추가시키는 것/ 그러나 이것은 좋은 방법이 아님. 왜냐하면 HTML에서 className을 바꾸면 JS,CSS파일 모두 고쳐줘야 하므로
+  // 따라서 정말로 해줘야 될 것은 JS로 모든 className을 변경하지 않는 것. 우리가 원하는 것은 sexy-font를 삭제하지 않고 active class를 바꾸는 것
+  // h1.className = "active"; // className을 정확히 적어줘야함 / css 클래스와 연동시키는 것
+  // 이 h1.className은 getter이면서 setter임 : 여러분이 console.log로 h1.className을 출력한다면 => class를 바꿀 수 있다는 것
+  if(h1.className === clickedClass){
+    h1.className = "";
+  } else {
+    h1.className = clickedClass; //다만 여기 이렇게 className을 string으로 중복 사용하게 될 경우 오류(철자 틀림으로 인한 미실행)를 일으킬 수 있기 때문에 function내에 변수를 지정해 주는 것이 안전
+  } // "active" -> clickedClass로 변경 이렇게 되면 변수에 className을 한 번만 복사 붙여넣기 하면 되고, 변수 이름이 틀릴 경우 console에서 변수가 정의되지 않았다고 알려줄 것임
+}// sexy-font와 연결하여... 처음에 sexy-font를 갖고 시작하지만 해당 clas를 대체해버림
+
+h1.addEventListener("click", handleTitleClick);
+
+// 이 방법이 위의 방법보다 더 JS코드가 적고, 덜 헷갈리며(직관적이며), 간단함
