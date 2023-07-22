@@ -1,9 +1,11 @@
 /*
-// variable & type
-const a = 5;
+// variable & type 
+const a = 5; // const는 안의 값을 수정할 수 없는 변수, let은 안의 값을 수정할 수 있는 변수 다만 둘 다 재선언(const, let을 다시 써서 같은 변수를)은 불가능하며, let의 경우 선언한 이후에는 let을
+붙일 필요 없이 그냥 변수 이름 = ... 해서 값을 업데이트 할 수 있음, 추가로 둘 모두 같은 코드블럭 내에서만 쓸 수 있음, ex.함수 안에서 썼던 변수를 전역변수로 사용 못함. Var의 문제점은 전역변수룰 함수
+내에서 재정의 할 경우 전역변수에 영향을 미칠 수 있기 때문에 많은 오류를 불러일으킬 수 있음
 const b = 2;
 let myName = "hojun";
-
+// let과 const, var의 차이점 https://www.freecodecamp.org/korean/news/var-let-constyi-caijeomeun/ 참조
 console.log(5+2);
 console.log(5*2);
 console.log(5/2);
@@ -11,7 +13,7 @@ console.log(5/2);
 console.log(a+b);
 console.log(a*b);
 console.log(a/b);
-console.log("hello " + myName);
+console.log("hello " + myName); // JS에서는 +를 String에 사용하면 연결되어 출력됨. int에 사용하면 연산함.
 
 myName = "Kimhojun";
 console.log("your new name is " + myName);
@@ -19,14 +21,14 @@ console.log("your new name is " + myName);
 
 
 // type & value
-const amIFat = false;
-const amINull = null;
+const amIFat = false; // boolean type : true, false(keyword like python)
+const amINull = null; // 안에 값이 없다는 것을(비어있다) 명시 - 의도적
 let something;
-console.log(amIFat);
-console.log(amINull);
-console.log(something);
+console.log(amIFat); // false 출력
+console.log(amINull); // null 출력
+console.log(something); // undefined 출력(선언은 했지만 값을 넣어주지 않았기 때문에)
 // null은 절대 자연적으로 발생하지 않는 다는 것을 확실히 하기 위해 쓰는 것, 여기엔 값이 "없다"라고 알려줄 때 쓰는 것
-// undefined는, 어떤 variable이 메모리에는 있는데 값(value)이 주어지지 않은 것.
+// undefined는, 어떤 variable이 메모리에는 있는데 값(value)이 주어지지 않은 것. (비의도적일 가능성이 높음)
 
 
 // array
@@ -38,23 +40,23 @@ const fri = "fri";
 const sat = "sat";
 const sun = "sund";
 
-let daysOfWeek = mon + tue + wed + thu + fri + sat + sun;
-console.log(daysOfWeek);
+let daysOfWeek = mon + tue + wed + thu + fri + sat + sun; // 그냥 string
+console.log(daysOfWeek); 
 
-daysOfWeek = [mon, tue, wed, thu, fri, sat, sun];
+daysOfWeek = [mon, tue, wed, thu, fri, sat, sun]; // array
 const nonsen = [1, 2, "hello", false, null, true, undefined, "hojun"];
 console.log(daysOfWeek,nonsen);
 
 daysOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sund"];
 console.log(daysOfWeek);
 // 5번째 일 검색?
-console.log(daysOfWeek[5]);
+console.log(daysOfWeek[5]); //이러면 다섯번째가 아니라 6번째 날이 나옴
 // 컴퓨터는 0부터 시작. 따라서 
 // Get Item from Array
 console.log(daysOfWeek[4]);
 
 // Add one more day to the array
-daysOfWeek.push("sun");
+daysOfWeek.push("sun"); //push를 사용해서 마지막 부분에 삽입
 
 console.log(daysOfWeek);
 
@@ -82,7 +84,7 @@ const player = {
 console.log(player);
 console.log(player.name);
 player.name
-//console 또한 object라는 의미이며, 그 안의 어딘가에 log라는 것이 있다는 것.
+//이는 console 또한 object라는 의미이며, 그 안의 어딘가에 log라는 것이 있다는 것.
 //list는 모든 값이 같은 의미를 갖음
 
 //표현하는 다른 방법으로 이것도 있음
@@ -95,23 +97,23 @@ console.log(player);
 // 의문점 : const는 변경할 수 없는데 왜 변경?
 // 그러나 우리가 하는 건 const를 수정하는 게 아니라 constant 안에 내용을 바꾸는 것, object 자체를 수정하려고 하면 에러 발생
 
-// player = false;
+// player = false; // 이렇게 되면 에러 발생
 
 // other case
-player.lastName = "Kim";
+player.lastName = "Kim"; //이렇게 되면 property를 새로 추가할 수 있다.
 
 console.log(player.points);
 player.points = player.points + 15;
 console.log(player.points);
 
-// If function is not exist.
+// If function is not exist. //계속해서 반복되는 코드를 실행하려면 같은 코드를 써줘야 해서 비효율적
 console.log("Hello my name is Hojun");
 console.log("Hello my name is EK");
 console.log("Hello my name is King");
 console.log("Hello my name is Jonhson");
-console.log("Hello my name is Fynn");
+console.log("Hello my name is Fynn"); 
 
-// function
+// function 같은 코드를 캡슐화해서 몇 번이고 재사용이 가능하게 만들어 주는 것
 function sayHello(nameOfPerson, age) {
   console.log("Hello my name is " + nameOfPerson + " and I'm " + age);
 };
@@ -123,7 +125,7 @@ sayHello();
 
 // be careful! 
 // sayHello; <- nothing happen => sayHello();
-// function의 argument가 한정적인 경우 많은 argumet를 보내도 앞에 순서로 자른다.(문제가 되지 않는다.)
+// function의 argument가 한정적인 경우 많은 argumet를 보내도 앞에 순서로 자른다.(문제가 되지 않는다.) 다만 parameter가 부족할 때는 문제가 된다(default값을 지정해 주지 않았다면)
 // function내의 argument는 함수 내에서만 작동하고 함수 밖에서는 동작하지 않는다.
 
 // empty arguments
@@ -132,7 +134,7 @@ sayHello();
 
 
 // receive data in function
-
+-----------------------------------------------------------------------------------------------7월 22일 토요일 여기까지 복습
 
 // object function활용
 
@@ -269,7 +271,8 @@ true && true === true
 true && false === false
 false && true === false
 false && false === false
-*/
+-----------------------------------------
+HTML - JS
 
 // <h1>의 id를 가져오는 방법
 // document.getElementById("title"); //이 함수는 string을 받는 함수
